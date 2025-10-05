@@ -78,6 +78,34 @@ export interface GlobalConfiguration {
    * Region Codes: https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2
    */
   locale: ValidLocale
+  /** Semantic search configuration */
+  semanticSearch?: {
+    enable: boolean
+    model: string
+    aot: boolean
+    dtype: "fp32" | "fp16"
+    dims: number
+    shardSizeRows: number
+    manifestUrl?: string
+    manifestBaseUrl?: string
+    disableCache?: boolean
+    hnsw: {
+      M: number
+      efConstruction: number
+      efSearch?: number
+    }
+    chunking: {
+      chunkSize: number
+      chunkOverlap: number
+      noChunking?: boolean
+    }
+    vllm?: {
+      enable: boolean
+      vllmUrl?: string
+      concurrency: number
+      batchSize: number
+    }
+  }
 }
 
 export interface QuartzConfig {

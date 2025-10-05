@@ -77,16 +77,97 @@
         margin-bottom: 2em;
       }
 
-      & > input {
+      & > .input-container {
+        align-items: center;
+        gap: 0.5rem;
+        display: flex;
+        flex-wrap: wrap;
+        position: relative;
         box-sizing: border-box;
-        padding: 0.5em 1em;
-        font-family: var(--bodyFont);
-        color: var(--dark);
-        font-size: 1.1em;
-        border: 1px solid var(--lightgray);
 
-        &:focus {
-          outline: none;
+        .search-bar {
+          flex: 1 1 auto;
+          min-width: 0;
+          box-sizing: border-box;
+          padding: 0.5em 1em;
+          font-family: var(--bodyFont);
+          color: var(--dark);
+          font-size: 1.1em;
+          border: none;
+          background: transparent;
+
+          &:focus {
+            outline: none;
+          }
+        }
+
+        .semantic-search-progress {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          height: 2px;
+          background-color: var(--secondary);
+          width: 0;
+          opacity: 0;
+          transition:
+            width 0.3s ease,
+            opacity 0.2s ease;
+          pointer-events: none;
+        }
+
+        .search-mode-toggle {
+          display: inline-flex;
+          align-items: center;
+          border-radius: 9999px;
+          height: 1.4rem;
+          background-color: color-mix(in srgb, var(--darkgray) 12%, transparent);
+          margin-right: 1rem;
+
+          .mode-option {
+            border: none;
+            background: transparent;
+            font: inherit;
+            color: var(--gray);
+            border-radius: 9999px;
+            cursor: pointer;
+            transition:
+              background-color 0.2s ease,
+              color 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 1.5rem;
+            height: 1.5rem;
+            position: relative;
+
+            &:focus-visible {
+              outline: 2px solid var(--tertiary);
+              outline-offset: 2px;
+            }
+
+            &.active {
+              background-color: var(--secondary);
+              color: var(--light);
+            }
+
+            svg {
+              width: 18px;
+              height: 18px;
+            }
+
+            .sr-only {
+              position: absolute;
+              width: 1px;
+              height: 1px;
+              padding: 0;
+              margin: -1px;
+              overflow: hidden;
+              clip: rect(0, 0, 0, 0);
+              white-space: nowrap;
+              border: 0;
+            }
+          }
         }
       }
 

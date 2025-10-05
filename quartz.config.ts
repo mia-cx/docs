@@ -1,5 +1,17 @@
-import { QuartzConfig } from "./quartz/cfg"
+import { GlobalConfiguration, QuartzConfig } from "./quartz/cfg"
 import * as Plugin from "./quartz/plugins"
+
+const semanticSearch: GlobalConfiguration["semanticSearch"] = {
+  enable: true,
+  model: "onnx-community/embeddinggemma-300m-ONNX",
+  aot: true,
+  dims: 768,
+  dtype: "fp32",
+  shardSizeRows: 1024,
+  hnsw: { M: 16, efConstruction: 200 },
+  chunking: { chunkSize: 256, chunkOverlap: 64 },
+  vllm: { enable: true, concurrency: 16, batchSize: 128 },
+}
 
 /**
  * Quartz 4 Configuration
@@ -52,6 +64,7 @@ const config: QuartzConfig = {
         },
       },
     },
+    semanticSearch,
   },
   plugins: {
     transformers: [
@@ -84,6 +97,7 @@ const config: QuartzConfig = {
         enableSiteMap: true,
         enableRSS: true,
       }),
+      Plugin.SemanticIndex(semanticSearch),
       Plugin.Assets(),
       Plugin.Static(),
       Plugin.Favicon(),

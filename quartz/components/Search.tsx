@@ -7,10 +7,12 @@ import { i18n } from "../i18n"
 
 export interface SearchOptions {
   enablePreview: boolean
+  includeButton: boolean
 }
 
 const defaultOptions: SearchOptions = {
   enablePreview: true,
+  includeButton: true,
 }
 
 export default ((userOpts?: Partial<SearchOptions>) => {
@@ -29,19 +31,54 @@ export default ((userOpts?: Partial<SearchOptions>) => {
           </svg>
           <p>{i18n(cfg.locale).components.search.title}</p>
         </button>
-        <div class="search-container">
-          <div class="search-space">
-            <input
-              autocomplete="off"
-              class="search-bar"
-              name="search"
-              type="text"
-              aria-label={searchPlaceholder}
-              placeholder={searchPlaceholder}
-            />
-            <div class="search-layout" data-preview={opts.enablePreview}></div>
-          </div>
-        </div>
+        <search class="search-container">
+          <form class="search-space">
+            <div class="input-container">
+              <input
+                autocomplete="off"
+                class="search-bar"
+                name="search"
+                type="text"
+                aria-label={searchPlaceholder}
+                placeholder={searchPlaceholder}
+              />
+              <div class="search-mode-toggle" role="radiogroup" aria-label="Search mode">
+                <button
+                  type="button"
+                  class="mode-option"
+                  data-mode="lexical"
+                  aria-pressed="true"
+                  aria-label="Full-text search"
+                >
+                  <svg viewBox="0 0 20 20" role="img" aria-hidden="true">
+                    <g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+                      <path d="M4 6h12M4 10h8M4 14h6" />
+                    </g>
+                  </svg>
+                  <span class="sr-only">Full-text</span>
+                </button>
+                <button
+                  type="button"
+                  class="mode-option"
+                  data-mode="semantic"
+                  aria-pressed="false"
+                  aria-label="Semantic search"
+                >
+                  <svg viewBox="0 0 20 20" role="img" aria-hidden="true">
+                    <g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+                      <circle cx="5.2" cy="10" r="2.4" />
+                      <circle cx="14.8" cy="4.8" r="2.1" />
+                      <circle cx="14.8" cy="15.2" r="2.1" />
+                      <path d="M7.1 8.7l5.2-2.4M7.1 11.3l5.2 2.4M14.8 6.9v6.2" />
+                    </g>
+                  </svg>
+                  <span class="sr-only">Semantic</span>
+                </button>
+              </div>
+            </div>
+            <output class="search-layout" data-preview={opts.enablePreview} />
+          </form>
+        </search>
       </div>
     )
   }

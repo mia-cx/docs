@@ -1,5 +1,8 @@
 import { FullSlug, joinSegments } from "../../util/path"
 import { QuartzEmitterPlugin } from "../types"
+import path from "path"
+import fs from "node:fs/promises"
+import { globby } from "globby"
 
 // @ts-ignore
 import spaRouterScript from "../../components/scripts/spa.inline"
@@ -16,7 +19,7 @@ import {
   processGoogleFonts,
 } from "../../util/theme"
 import { Features, transform } from "lightningcss"
-import { transform as transpile } from "esbuild"
+import { transform as transpile, build as bundle } from "esbuild"
 import { write } from "./helpers"
 
 type ComponentResources = {
@@ -357,7 +360,47 @@ export const ComponentResources: QuartzEmitterPlugin = () => {
         ext: ".js",
         content: postscript,
       })
+
+      // Bundle all worker files
+      const workerFiles = await globby(["quartz/**/*.worker.ts"])
+      for (const src of workerFiles) {
+        const result = await bundle({
+          entryPoints: [src],
+          bundle: true,
+          minify: true,
+          platform: "browser",
+          format: "esm",
+          write: false,
+        })
+        const code = result.outputFiles[0].text
+        const name = path.basename(src).replace(/\.ts$/, "")
+        yield write({ ctx, slug: name as FullSlug, ext: ".js", content: code })
+      }
     },
-    async *partialEmit() {},
+    async *partialEmit(ctx, _content, _resources, changeEvents) {
+      // Handle worker file changes in incremental builds
+      for (const changeEvent of changeEvents) {
+        if (!/\.worker\.ts$/.test(changeEvent.path)) continue
+        if (changeEvent.type === "delete") {
+          const name = path.basename(changeEvent.path).replace(/\.ts$/, "")
+          const dest = joinSegments(ctx.argv.output, `${name}.js`)
+          try {
+            await fs.unlink(dest)
+          } catch {}
+          continue
+        }
+        const result = await bundle({
+          entryPoints: [changeEvent.path],
+          bundle: true,
+          minify: true,
+          platform: "browser",
+          format: "esm",
+          write: false,
+        })
+        const code = result.outputFiles[0].text
+        const name = path.basename(changeEvent.path).replace(/\.ts$/, "")
+        yield write({ ctx, slug: name as FullSlug, ext: ".js", content: code })
+      }
+    },
   }
 }
