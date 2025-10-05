@@ -1,4 +1,4 @@
-import FlexSearch, { DefaultDocumentSearchResults } from "flexsearch"
+import FlexSearch, { DefaultDocumentSearchResults, Id } from "flexsearch"
 import type { ContentDetails } from "../../plugins/emitters/contentIndex"
 import { SemanticClient, type SemanticResult } from "./semantic.inline"
 import {
@@ -140,10 +140,6 @@ const index = new FlexSearch.Document<Item>({
       },
       {
         field: "tags",
-        tokenize: "forward",
-      },
-      {
-        field: "aliases",
         tokenize: "forward",
       },
     ],
@@ -412,7 +408,6 @@ async function setupSearch(
       removeAllChildren(preview)
     }
     searchLayout.classList.remove("display-results")
-    searchType = "basic" // reset search type after closing
     searchButton.focus()
     resetProgressBar()
   }
@@ -429,9 +424,6 @@ async function setupSearch(
   let currentHover: HTMLInputElement | null = null
 
   async function shortcutHandler(e: HTMLElementEventMap["keydown"]) {
-    const paletteOpen = document.querySelector("search#palette-container") as HTMLDivElement
-    if (paletteOpen && paletteOpen.classList.contains("active")) return
-
     if ((e.key === "/" || e.key === "k") && (e.ctrlKey || e.metaKey) && !e.shiftKey) {
       e.preventDefault()
       const searchBarOpen = container.classList.contains("active")
@@ -505,8 +497,6 @@ async function setupSearch(
 
   const formatForDisplay = (term: string, id: number, renderType: SearchType) => {
     const slug = idDataMap[id]
-    const aliases: string[] = data[slug].aliases ?? []
-    const target = aliases.find((alias) => alias.toLowerCase().includes(term.toLowerCase())) ?? ""
 
     // Check if query contains title words (for boosting exact matches)
     const queryTokens = tokenizeTerm(term)
@@ -516,14 +506,9 @@ async function setupSearch(
     return {
       id,
       slug,
-      title:
-        renderType === "tags" || target
-          ? data[slug].title
-          : highlight(term, data[slug].title ?? ""),
-      target,
+      title: renderType === "tags" ? data[slug].title : highlight(term, data[slug].title ?? ""),
       content: highlight(term, data[slug].content ?? "", true),
       tags: highlightTags(term, data[slug].tags, renderType),
-      aliases: aliases,
       titleMatch, // Add title match flag for boosting
     }
   }
@@ -714,7 +699,7 @@ async function setupSearch(
         const results = await index.searchAsync({
           query,
           limit: Math.max(numSearchResults, 10000),
-          index: ["title", "content", "aliases"],
+          index: ["title", "content"],
           tag: { tags: tag },
         })
         if (token !== searchSeq) return
@@ -735,7 +720,7 @@ async function setupSearch(
       const results = await index.searchAsync({
         query: highlightTerm,
         limit: numSearchResults,
-        index: ["title", "content", "aliases"],
+        index: ["title", "content"],
       })
       if (token !== searchSeq) return
       searchResults = Object.values(results)
@@ -760,7 +745,6 @@ async function setupSearch(
     }
 
     const allIds: Set<number> = new Set([
-      ...getByField("aliases"),
       ...getByField("title"),
       ...getByField("content"),
       ...getByField("tags"),
@@ -980,7 +964,6 @@ async function fillDocument(data: ContentIndex) {
         title: fileData.title,
         content: fileData.content,
         tags: fileData.tags,
-        aliases: fileData.aliases,
       }),
     )
     id++
