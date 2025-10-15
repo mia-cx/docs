@@ -8,7 +8,7 @@ import * as Plugin from "./quartz/plugins"
  */
 const config: QuartzConfig = {
     configuration: {
-        pageTitle: "mia.cx Doc",
+        pageTitle: "mia.cx Docs",
         pageTitleSuffix: " | mia.cx Docs",
         enableSPA: true,
         enablePopovers: true,
