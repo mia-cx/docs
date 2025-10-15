@@ -3,7 +3,7 @@ title: canvas
 authors:
 description:
 created: 2025-10-15T12:34:09+02:00
-modified: 2025-10-15T21:33:35+02:00
+modified: 2025-10-15T21:57:51+02:00
 license:
 license_url:
 ---
@@ -169,6 +169,8 @@ At this point I will enable public sign-up and invite existing users to start us
 
 Custom domains will be a cool and relatively simple additional feature to add after these to enhance incentive for artists to switch. I'm not sure how cheap I can manage custom domains, because automated SSL certificate generations tends to be a pain, but I will try to get this as low as possible to maybe even add this as a free bonus for early adopters.
 
-After these, I will have to re-assess, and listen to user feedback to decide which features should come next.
+After these, I will have to re-assess. Is canvas making enough money to afford marketing campaigns? Should we work on expanding the feature-set first?
+
+I want every decision along the way to be transparent and in the interest of the users on the platform, and I will listen to user feedback to decide on which steps to take next.
 
 This is also the point where I will think about starting work on Textile.
