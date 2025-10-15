@@ -82,23 +82,23 @@ Art is personal. The way you present your art should be, too. Modern social medi
 
 Managing your discography across a multitude of platforms is basically a full-time job. A musician, on average, will have profiles that all need to be maintained (by themselves) with their content on:
 
-- Bandcamp
-- Facebook
-- Instagram
-- SoundCloud
-- TikTok
-- Twitter
-- YouTube
+- [Bandcamp](https://en.wikipedia.org/wiki/Bandcamp)
+- [Facebook](https://en.wikipedia.org/wiki/Facebook)
+- [Instagram](https://en.wikipedia.org/wiki/Instagram)
+- [SoundCloud](https://en.wikipedia.org/wiki/SoundCloud)
+- [TikTok](https://en.wikipedia.org/wiki/TikTok)
+- [Twitter](https://en.wikipedia.org/wiki/Twitter)
+- [YouTube](https://en.wikipedia.org/wiki/YouTube)
 
 Nowadays, it's not unusual to see artists manage profiles on even more platforms like:
 
-- Bluesky
-- Newgrounds
-- Twitch
+- [Bluesky](https://en.wikipedia.org/wiki/Bluesky)
+- [Newgrounds](https://en.wikipedia.org/wiki/Newgrounds)
+- [Twitch](<https://en.wikipedia.org/wiki/Twitch_(service)>)
 
 Labels, in turn would manage all of these profiles for each of their artists, unless they have the artists manage these themselves.
 
-All of this is before you even get into distributing your music to DSPs like Spotify, Apple Music and the like.
+All of this is before you even get into distributing your music to DSPs like [Spotify](https://en.wikipedia.org/wiki/Spotify), [Apple Music](https://en.wikipedia.org/wiki/Apple_Music) and the like.
 
 ### Distribution
 
@@ -106,7 +106,7 @@ Distribution your music is... frustrating... there's a lot of providers out ther
 
 ### Data Quality Management
 
-Problems with DQM are things I encountered while organizing compilation albums. Keeping track of track metadata, artist names, legal info, social media links, royalty split email addresses... You would think or even expect these are tools built into distribution partners, but no. We had to do this with our own spreadsheets.
+Problems with DQM are things I encountered while organizing compilation albums. Keeping track of metadata, artist names, legal info, social media links, royalty split email addresses... You would think or even expect these are tools built into distribution partners, but no. We had to do this with our own spreadsheets.
 
 ### Collaboration
 
@@ -144,6 +144,12 @@ All of these things exist, individually, with focus on diverging audiences, whic
 ### Identity
 
 Another core value of canvas is that artists get to present their content the way they want to. Profile pictures and banners, while included, are not the whole picture. We want you to be able to design the look of your entire page. Change every color in your theme, switch fonts, change alignment, and to an extent, change layouts. Think [tumblr](https://en.wikipedia.org/wiki/Tumblr). Your profile should feel like your own home page.
+
+### User engagement
+
+Visitors and other canvas users should be able to interact with posts on the platform through the usual _like_, _comment_, _repost_ and _subscribe_ methods. On top of that I want to make this a hotspot for curators by adding "collections". Collections will be similar to playlists or "lists", but the best analog is the Collections feature from the defunct [Google+](https://en.wikipedia.org/wiki/Google%2B).
+The standout difference between canvas collections and lists on other platforms is that users can follow collections like they would users, so that they see posts that are added to these collections on their feed.
+It would be cool to also allow for curators to add artists or labels to collections so it auto-populates a collection's feed with posts from these artists, like a "follow-list". Though, I will have to think about a way to let users "exclude" artists from a collection they follow so those artists' posts don't show up in that user's feed, even though they're in a collection that that user follows.
 
 ## The road to get there
 
