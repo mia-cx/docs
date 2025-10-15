@@ -8,7 +8,7 @@ license:
 license_url:
 ---
 
-canvas is a web platform that lets record labels, publishers and host and market their content effectively.
+canvas is a web platform that lets record labels, publishers and artists host and market their content effectively.
 
 ## The target audience
 
@@ -51,7 +51,7 @@ When you share your music with your friends, you usually know who they are. You 
 Posting your music on social media is more of an open invitation. You don't know who will see your posts, so you can't know what [streaming platform](https://en.wikipedia.org/wiki/Music_streaming_service) they're on. That makes it harder to effectively get conversions from visitors, to listeners, to fans. If your post only has a link to one [streaming platform](https://en.wikipedia.org/wiki/Music_streaming_service), potential fans that use different services, experience very high friction from having to manually leave your post, then open their service of choice, and searching for it.
 
 > [!info] Other side-effects
-> 
+>
 > 1. When a user leaves a social media site to look for your music, that social media typically sees that as your post making users close the platform. This can result in that social media negatively impacting the visibility / reach of your post in their recommendation algorithm. Users clicking a link in your post is typically treated differently.
 > 2. When a user has to search for your music manually, on their streaming service of choice, there is no guarantee that the user will actually find your music. There is a plethora of songs and artists with similar if not identical titles. Search results are usually sorted by popularity, so unless your metadata is thoroughly disambiguated, it's unlikely to show up.
 
@@ -80,9 +80,9 @@ Below is a list of these landing page services and the price of the cheapest pla
 | [Feature.fm](https://feature.fm/pricing/artist)    | $19/mo            | $99/mo              | - Limited custom domains<br>- Limited analytics history<br>- Remember service only in higher plan.<br>- No Ad platform integration |
 | [Linktree](https://linktr.ee/s/pricing/)           | €12/mo            | Not available       | - No "future pre-save"<br>- No Ad platform integration                                                                             |
 | [Hypeddit](https://hypeddit.com/)                  | $10/mo            | Not available       | - No "future pre-save"<br>- No Ad platform integration                                                                             |
-| [ToneDen](<https://www.toneden.io/>)                 | €41/mo            | €82/mo (per artist) | - No "future pre-save"                                                                                                             |
-| [LinkFire](<https://www.linkfire.com/pricing>)       | $27/mo            | $55/mo              | - Limited artist slots for labels<br>- No free plan<br>- No Ad platform integration                                                |
-| [Soundplate](<https://click.soundplate.com/pricing>) | $20/mo            | POA                 | - No "future pre-save"<br>- No Ad platform integration                                                                             |
+| [ToneDen](https://www.toneden.io/)                 | €41/mo            | €82/mo (per artist) | - No "future pre-save"                                                                                                             |
+| [LinkFire](https://www.linkfire.com/pricing)       | $27/mo            | $55/mo              | - Limited artist slots for labels<br>- No free plan<br>- No Ad platform integration                                                |
+| [Soundplate](https://click.soundplate.com/pricing) | $20/mo            | POA                 | - No "future pre-save"<br>- No Ad platform integration                                                                             |
 
 The plans above also include many features that many starting artists and labels don't and probably won't need.
 
