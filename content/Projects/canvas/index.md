@@ -3,7 +3,7 @@ title: canvas
 authors:
 description:
 created: 2025-10-15T12:34:09+02:00
-modified: 2025-10-15T15:15:51+02:00
+modified: 2025-10-15T15:48:54+02:00
 license:
 license_url:
 ---
@@ -25,7 +25,7 @@ When you share your music with your friends, you usually know who they are. You 
 Posting your music on social media is more of an open invitation. You don't know who will see your posts, so you can't know what [streaming platform](https://en.wikipedia.org/wiki/Music_streaming_service) they're on. That makes it harder to effectively get conversions from visitors, to listeners, to fans. If your post only has a link to one [streaming platform](https://en.wikipedia.org/wiki/Music_streaming_service), potential fans that use different services, experience very high friction from having to manually leave your post, then open their service of choice, and searching for it.
 
 > [!info] Other side-effects
->
+> 
 > 1. When a user leaves a social media site to look for your music, that social media typically sees that as your post making users close the platform. This can result in that social media negatively impacting the visibility / reach of your post in their recommendation algorithm. Users clicking a link in your post is typically treated differently.
 > 2. When a user has to search for your music manually, on their streaming service of choice, there is no guarantee that the user will actually find your music. There are huge amounts of songs and artists with similar if not identical titles. Search results are usually sorted by popularity, so unless your metadata is thoroughly disambiguated, it's unlikely to show up.
 
@@ -54,8 +54,8 @@ Below is a list of these landing page services and the price of the cheapest pla
 | [Feature.fm](https://feature.fm/pricing/artist)    | $19/mo            | $99/mo              | - Limited custom domains<br>- Limited analytics history<br>- Remember service only in higher plan. |
 | [Linktree](https://linktr.ee/s/pricing/)           | €12/mo            | Not available       |                                                                                                    |
 | [Hypeddit](https://hypeddit.com/)                  | $10/mo            | Not available       | - No "future pre-save"                                                                             |
-| [ToneDen](https://www.toneden.io/)                 | €41/mo            | €82/mo (per artist) |                                                                                                    |
-| [LinkFire](https://www.linkfire.com/pricing)       | $27/mo            | $55/mo              | - Limited artist slots for labels<br>- No free plan                                                |
+| [ToneDen](<https://www.toneden.io/>)                 | €41/mo            | €82/mo (per artist) |                                                                                                    |
+| [LinkFire](<https://www.linkfire.com/pricing>)       | $27/mo            | $55/mo              | - Limited artist slots for labels<br>- No free plan                                                |
 | [Soundplate](https://click.soundplate.com/pricing) |                   |                     |                                                                                                    |
 
 ## The target audience
