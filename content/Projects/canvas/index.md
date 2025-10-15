@@ -156,11 +156,19 @@ There should also be a special type of collection which is functionally identica
 
 The best way to get to market, in my opinion is to start with the content management system. Build a "blogging engine" focused around art and music with "smart links" built in so artists can quickly adopt and port over their catalog to canvas and see an immediate improvement to their visual identity.
 
+I plan on bringing on artists I know personally so they can help beta-test everything, report issues, request improvements, etc. During this stage I can also keep an eye on traffic and usage statistics to figure out pricing for these features.
+
+When everything is stable I will enable "private beta" which will have application-based sign-up and let existing users invite x amount of others per month. I will also invite more of my network in the industry, people I don't know personally, but who I think will benefit from canvas, if not now, in the long run.
+
 After the blogging engine, the next priority is to get pre-saves working so that artists will start to use canvas to announce their music as well.
 
 The logical next step would be to introduce an analytics dashboard, and allow for sharing analytics with other platforms like [Meta Ads](https://en.wikipedia.org/wiki/Meta_Platforms), TikTok Ads, Twitter Ads, [Google Analytics](https://en.wikipedia.org/wiki/Google_Analytics), and more(?), so that people can set up ad campaigns to be retargeted based on real-time conversion data.
 
-As soon as the first three milestones have been reached, I think canvas can be self-sustaining. Custom domains will be a cool and relatively simple additional feature to add after these to enhance incentive for artists to switch.  
+As soon as the first three milestones have been reached, I think canvas can be self-sustaining.
+At this point I will enable public sign-up and invite existing users to start using canvas as their main link aggregation platform.
+
+Custom domains will be a cool and relatively simple additional feature to add after these to enhance incentive for artists to switch. I'm not sure how cheap I can manage custom domains, because automated SSL certificate generations tends to be a pain, but I will try to get this as low as possible to maybe even add this as a free bonus for early adopters.
+
 After these, I will have to re-assess, and listen to user feedback to decide which features should come next.
 
 This is also the point where I will think about starting work on Textile.
