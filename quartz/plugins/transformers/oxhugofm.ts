@@ -3,25 +3,25 @@ import rehypeRaw from "rehype-raw"
 import { PluggableList } from "unified"
 
 export interface Options {
-  /** Replace {{ relref }} with quartz wikilinks []() */
-  wikilinks: boolean
-  /** Remove pre-defined anchor (see https://ox-hugo.scripter.co/doc/anchors/) */
-  removePredefinedAnchor: boolean
-  /** Remove hugo shortcode syntax */
-  removeHugoShortcode: boolean
-  /** Replace <figure/> with ![]() */
-  replaceFigureWithMdImg: boolean
+    /** Replace {{ relref }} with quartz wikilinks []() */
+    wikilinks: boolean
+    /** Remove pre-defined anchor (see https://ox-hugo.scripter.co/doc/anchors/) */
+    removePredefinedAnchor: boolean
+    /** Remove hugo shortcode syntax */
+    removeHugoShortcode: boolean
+    /** Replace <figure/> with ![]() */
+    replaceFigureWithMdImg: boolean
 
-  /** Replace org latex fragments with $ and $$ */
-  replaceOrgLatex: boolean
+    /** Replace org latex fragments with $ and $$ */
+    replaceOrgLatex: boolean
 }
 
 const defaultOptions: Options = {
-  wikilinks: true,
-  removePredefinedAnchor: true,
-  removeHugoShortcode: true,
-  replaceFigureWithMdImg: true,
-  replaceOrgLatex: true,
+    wikilinks: true,
+    removePredefinedAnchor: true,
+    removeHugoShortcode: true,
+    replaceFigureWithMdImg: true,
+    replaceOrgLatex: true,
 }
 
 const relrefRegex = new RegExp(/\[([^\]]+)\]\(\{\{< relref "([^"]+)" >\}\}\)/, "g")
@@ -36,8 +36,8 @@ const inlineLatexRegex = new RegExp(/\\\\\((.+?)\\\\\)/, "g")
 // ([\s\S]*?) -> Matches the block equation
 // (?:\\\\\]|\\\\\)|\\end{equation}) -> end of equation
 const blockLatexRegex = new RegExp(
-  /(?:\\begin{equation}|\\\\\(|\\\\\[)([\s\S]*?)(?:\\\\\]|\\\\\)|\\end{equation})/,
-  "g",
+    /(?:\\begin{equation}|\\\\\(|\\\\\[)([\s\S]*?)(?:\\\\\]|\\\\\)|\\end{equation})/,
+    "g",
 )
 // \$\$[\s\S]*?\$\$ -> Matches block equations
 // \$.*?\$ -> Matches inline equations
@@ -50,63 +50,63 @@ const quartzLatexRegex = new RegExp(/\$\$[\s\S]*?\$\$|\$.*?\$/, "g")
  * is not exhaustive.
  * */
 export const OxHugoFlavouredMarkdown: QuartzTransformerPlugin<Partial<Options>> = (userOpts) => {
-  const opts = { ...defaultOptions, ...userOpts }
-  return {
-    name: "OxHugoFlavouredMarkdown",
-    textTransform(_ctx, src) {
-      if (opts.wikilinks) {
-        src = src.toString()
-        src = src.replaceAll(relrefRegex, (_value, ...capture) => {
-          const [text, link] = capture
-          return `[${text}](${link})`
-        })
-      }
+    const opts = { ...defaultOptions, ...userOpts }
+    return {
+        name: "OxHugoFlavouredMarkdown",
+        textTransform(_ctx, src) {
+            if (opts.wikilinks) {
+                src = src.toString()
+                src = src.replaceAll(relrefRegex, (_value, ...capture) => {
+                    const [text, link] = capture
+                    return `[${text}](${link})`
+                })
+            }
 
-      if (opts.removePredefinedAnchor) {
-        src = src.toString()
-        src = src.replaceAll(predefinedHeadingIdRegex, (_value, ...capture) => {
-          const [headingText] = capture
-          return headingText
-        })
-      }
+            if (opts.removePredefinedAnchor) {
+                src = src.toString()
+                src = src.replaceAll(predefinedHeadingIdRegex, (_value, ...capture) => {
+                    const [headingText] = capture
+                    return headingText
+                })
+            }
 
-      if (opts.removeHugoShortcode) {
-        src = src.toString()
-        src = src.replaceAll(hugoShortcodeRegex, (_value, ...capture) => {
-          const [scContent] = capture
-          return scContent
-        })
-      }
+            if (opts.removeHugoShortcode) {
+                src = src.toString()
+                src = src.replaceAll(hugoShortcodeRegex, (_value, ...capture) => {
+                    const [scContent] = capture
+                    return scContent
+                })
+            }
 
-      if (opts.replaceFigureWithMdImg) {
-        src = src.toString()
-        src = src.replaceAll(figureTagRegex, (_value, ...capture) => {
-          const [src] = capture
-          return `![](${src})`
-        })
-      }
+            if (opts.replaceFigureWithMdImg) {
+                src = src.toString()
+                src = src.replaceAll(figureTagRegex, (_value, ...capture) => {
+                    const [src] = capture
+                    return `![](${src})`
+                })
+            }
 
-      if (opts.replaceOrgLatex) {
-        src = src.toString()
-        src = src.replaceAll(inlineLatexRegex, (_value, ...capture) => {
-          const [eqn] = capture
-          return `$${eqn}$`
-        })
-        src = src.replaceAll(blockLatexRegex, (_value, ...capture) => {
-          const [eqn] = capture
-          return `$$${eqn}$$`
-        })
+            if (opts.replaceOrgLatex) {
+                src = src.toString()
+                src = src.replaceAll(inlineLatexRegex, (_value, ...capture) => {
+                    const [eqn] = capture
+                    return `$${eqn}$`
+                })
+                src = src.replaceAll(blockLatexRegex, (_value, ...capture) => {
+                    const [eqn] = capture
+                    return `$$${eqn}$$`
+                })
 
-        // ox-hugo escapes _ as \_
-        src = src.replaceAll(quartzLatexRegex, (value) => {
-          return value.replaceAll("\\_", "_")
-        })
-      }
-      return src
-    },
-    htmlPlugins() {
-      const plugins: PluggableList = [rehypeRaw]
-      return plugins
-    },
-  }
+                // ox-hugo escapes _ as \_
+                src = src.replaceAll(quartzLatexRegex, (value) => {
+                    return value.replaceAll("\\_", "_")
+                })
+            }
+            return src
+        },
+        htmlPlugins() {
+            const plugins: PluggableList = [rehypeRaw]
+            return plugins
+        },
+    }
 }

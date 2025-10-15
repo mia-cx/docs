@@ -1,7 +1,7 @@
 ---
 title: "Explorer"
 tags:
-  - component
+    - component
 ---
 
 Quartz features an explorer that allows you to navigate all files and folders on your site. It supports nested folders and is highly customizable.
@@ -41,7 +41,7 @@ When passing in your own options, you can omit any or all of these fields if you
 Want to customize it even more?
 
 - Removing explorer: remove `Component.Explorer()` from `quartz.layout.ts`
-  - (optional): After removing the explorer component, you can move the [[table of contents | Table of Contents]] component back to the `left` part of the layout
+    - (optional): After removing the explorer component, you can move the [[table of contents | Table of Contents]] component back to the `left` part of the layout
 - Changing `sort`, `filter` and `map` behavior: explained in [[#Advanced customization]]
 - Component: `quartz/components/Explorer.tsx`
 - Style: `quartz/components/styles/explorer.scss`
@@ -54,19 +54,19 @@ All functions you can pass work with the `FileTrieNode` class, which has the fol
 
 ```ts title="quartz/components/Explorer.tsx"
 class FileTrieNode {
-  isFolder: boolean
-  children: Array<FileTrieNode>
-  data: ContentDetails | null
+    isFolder: boolean
+    children: Array<FileTrieNode>
+    data: ContentDetails | null
 }
 ```
 
 ```ts title="quartz/plugins/emitters/contentIndex.tsx"
 export type ContentDetails = {
-  slug: FullSlug
-  title: string
-  links: SimpleSlug[]
-  tags: string[]
-  content: string
+    slug: FullSlug
+    title: string
+    links: SimpleSlug[]
+    tags: string[]
+    content: string
 }
 ```
 
@@ -75,20 +75,20 @@ Every function you can pass is optional. By default, only a `sort` function will
 ```ts title="Default sort function"
 // Sort order: folders first, then files. Sort folders and files alphabetically
 Component.Explorer({
-  sortFn: (a, b) => {
-    if ((!a.isFolder && !b.isFolder) || (a.isFolder && b.isFolder)) {
-      return a.displayName.localeCompare(b.displayName, undefined, {
-        numeric: true,
-        sensitivity: "base",
-      })
-    }
+    sortFn: (a, b) => {
+        if ((!a.isFolder && !b.isFolder) || (a.isFolder && b.isFolder)) {
+            return a.displayName.localeCompare(b.displayName, undefined, {
+                numeric: true,
+                sensitivity: "base",
+            })
+        }
 
-    if (!a.isFolder && b.isFolder) {
-      return 1
-    } else {
-      return -1
-    }
-  },
+        if (!a.isFolder && b.isFolder) {
+            return 1
+        } else {
+            return -1
+        }
+    },
 })
 ```
 
@@ -116,9 +116,9 @@ Using this example, the explorer will alphabetically sort everything.
 
 ```ts title="quartz.layout.ts"
 Component.Explorer({
-  sortFn: (a, b) => {
-    return a.displayName.localeCompare(b.displayName)
-  },
+    sortFn: (a, b) => {
+        return a.displayName.localeCompare(b.displayName)
+    },
 })
 ```
 
@@ -128,10 +128,10 @@ Using this example, the display names of all `FileNodes` (folders + files) will 
 
 ```ts title="quartz.layout.ts"
 Component.Explorer({
-  mapFn: (node) => {
-    node.displayName = node.displayName.toUpperCase()
-    return node
-  },
+    mapFn: (node) => {
+        node.displayName = node.displayName.toUpperCase()
+        return node
+    },
 })
 ```
 
@@ -142,15 +142,15 @@ Note that this example filters on the title but you can also do it via slug or a
 
 ```ts title="quartz.layout.ts"
 Component.Explorer({
-  filterFn: (node) => {
-    // set containing names of everything you want to filter out
-    const omit = new Set(["authoring content", "tags", "advanced"])
+    filterFn: (node) => {
+        // set containing names of everything you want to filter out
+        const omit = new Set(["authoring content", "tags", "advanced"])
 
-    // can also use node.slug or by anything on node.data
-    // note that node.data is only present for files that exist on disk
-    // (e.g. implicit folder nodes that have no associated index.md)
-    return !omit.has(node.displayName.toLowerCase())
-  },
+        // can also use node.slug or by anything on node.data
+        // note that node.data is only present for files that exist on disk
+        // (e.g. implicit folder nodes that have no associated index.md)
+        return !omit.has(node.displayName.toLowerCase())
+    },
 })
 ```
 
@@ -160,10 +160,10 @@ You can access the tags of a file by `node.data.tags`.
 
 ```ts title="quartz.layout.ts"
 Component.Explorer({
-  filterFn: (node) => {
-    // exclude files with the tag "explorerexclude"
-    return node.data.tags?.includes("explorerexclude") !== true
-  },
+    filterFn: (node) => {
+        // exclude files with the tag "explorerexclude"
+        return node.data.tags?.includes("explorerexclude") !== true
+    },
 })
 ```
 
@@ -174,7 +174,7 @@ To override the default filter function, you can set the filter function to `und
 
 ```ts title="quartz.layout.ts"
 Component.Explorer({
-  filterFn: undefined, // apply no filter function, every file and folder will visible
+    filterFn: undefined, // apply no filter function, every file and folder will visible
 })
 ```
 
@@ -189,20 +189,20 @@ Component.Explorer({
 > import { Options } from "./quartz/components/Explorer"
 >
 > export const mapFn: Options["mapFn"] = (node) => {
->   // implement your function here
+>     // implement your function here
 > }
 > export const filterFn: Options["filterFn"] = (node) => {
->   // implement your function here
+>     // implement your function here
 > }
 > export const sortFn: Options["sortFn"] = (a, b) => {
->   // implement your function here
+>     // implement your function here
 > }
 >
 > Component.Explorer({
->   // ... your other options
->   mapFn,
->   filterFn,
->   sortFn,
+>     // ... your other options
+>     mapFn,
+>     filterFn,
+>     sortFn,
 > })
 > ```
 
@@ -212,12 +212,12 @@ To add emoji prefixes (📁 for folders, 📄 for files), you could use a map fu
 
 ```ts title="quartz.layout.ts"
 Component.Explorer({
-  mapFn: (node) => {
-    if (node.isFolder) {
-      node.displayName = "📁 " + node.displayName
-    } else {
-      node.displayName = "📄 " + node.displayName
-    }
-  },
+    mapFn: (node) => {
+        if (node.isFolder) {
+            node.displayName = "📁 " + node.displayName
+        } else {
+            node.displayName = "📄 " + node.displayName
+        }
+    },
 })
 ```

@@ -1,7 +1,7 @@
 ---
 title: Custom OG Images
 tags:
-  - feature/emitter
+    - feature/emitter
 ---
 
 The Custom OG Images emitter plugin generates social media preview images for your pages. It uses [satori](https://github.com/vercel/satori) to convert HTML/CSS into images, allowing you to create beautiful and consistent social media preview cards for your content.
@@ -29,17 +29,17 @@ This plugin accepts the following configuration options:
 import { CustomOgImages } from "./quartz/plugins/emitters/ogImage"
 
 const config: QuartzConfig = {
-  plugins: {
-    emitters: [
-      CustomOgImages({
-        colorScheme: "lightMode", // what colors to use for generating image, same as theme colors from config, valid values are "darkMode" and "lightMode"
-        width: 1200, // width to generate with (in pixels)
-        height: 630, // height to generate with (in pixels)
-        excludeRoot: false, // wether to exclude "/" index path to be excluded from auto generated images (false = use auto, true = use default og image)
-        imageStructure: defaultImage, // custom image component to use
-      }),
-    ],
-  },
+    plugins: {
+        emitters: [
+            CustomOgImages({
+                colorScheme: "lightMode", // what colors to use for generating image, same as theme colors from config, valid values are "darkMode" and "lightMode"
+                width: 1200, // width to generate with (in pixels)
+                height: 630, // height to generate with (in pixels)
+                excludeRoot: false, // wether to exclude "/" index path to be excluded from auto generated images (false = use auto, true = use default og image)
+                imageStructure: defaultImage, // custom image component to use
+            }),
+        ],
+    },
 }
 ```
 
@@ -92,11 +92,11 @@ export const myImage: SocialImageOptions["imageStructure"] = (...) => {
 >
 > ```scss title="custom.scss"
 > @font-face {
->   font-family: "Newsreader";
->   font-style: normal;
->   font-weight: normal;
->   font-display: swap;
->   src: url("/static/Newsreader.woff2") format("woff2");
+>     font-family: "Newsreader";
+>     font-style: normal;
+>     font-weight: normal;
+>     font-display: swap;
+>     src: url("/static/Newsreader.woff2") format("woff2");
 > }
 > ```
 >
@@ -109,29 +109,29 @@ export const myImage: SocialImageOptions["imageStructure"] = (...) => {
 >
 > const newsreaderFontPath = joinSegments(QUARTZ, "static", "Newsreader.woff2")
 > export async function getSatoriFonts(headerFont: FontSpecification, bodyFont: FontSpecification) {
->   // ... rest of implementation remains same
->   const fonts: SatoriOptions["fonts"] = [
->     ...headerFontData.map((data, idx) => ({
->       name: headerFontName,
->       data,
->       weight: headerWeights[idx],
->       style: "normal" as const,
->     })),
->     ...bodyFontData.map((data, idx) => ({
->       name: bodyFontName,
->       data,
->       weight: bodyWeights[idx],
->       style: "normal" as const,
->     })),
->     {
->       name: "Newsreader",
->       data: await fs.promises.readFile(path.resolve(newsreaderFontPath)),
->       weight: 400,
->       style: "normal" as const,
->     },
->   ]
+>     // ... rest of implementation remains same
+>     const fonts: SatoriOptions["fonts"] = [
+>         ...headerFontData.map((data, idx) => ({
+>             name: headerFontName,
+>             data,
+>             weight: headerWeights[idx],
+>             style: "normal" as const,
+>         })),
+>         ...bodyFontData.map((data, idx) => ({
+>             name: bodyFontName,
+>             data,
+>             weight: bodyWeights[idx],
+>             style: "normal" as const,
+>         })),
+>         {
+>             name: "Newsreader",
+>             data: await fs.promises.readFile(path.resolve(newsreaderFontPath)),
+>             weight: 400,
+>             style: "normal" as const,
+>         },
+>     ]
 >
->   return fonts
+>     return fonts
 > }
 > ```
 >
@@ -156,79 +156,79 @@ import { SocialImageOptions, UserOpts } from "./imageHelper"
 import { QuartzPluginData } from "../plugins/vfile"
 
 export const customImage: SocialImageOptions["imageStructure"] = (
-  cfg: GlobalConfiguration,
-  userOpts: UserOpts,
-  title: string,
-  description: string,
-  fonts: SatoriOptions["fonts"],
-  fileData: QuartzPluginData,
+    cfg: GlobalConfiguration,
+    userOpts: UserOpts,
+    title: string,
+    description: string,
+    fonts: SatoriOptions["fonts"],
+    fileData: QuartzPluginData,
 ) => {
-  // How many characters are allowed before switching to smaller font
-  const fontBreakPoint = 22
-  const useSmallerFont = title.length > fontBreakPoint
+    // How many characters are allowed before switching to smaller font
+    const fontBreakPoint = 22
+    const useSmallerFont = title.length > fontBreakPoint
 
-  const { colorScheme } = userOpts
-  return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "row",
-        justifyContent: "flex-start",
-        alignItems: "center",
-        height: "100%",
-        width: "100%",
-      }}
-    >
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          height: "100%",
-          width: "100%",
-          backgroundColor: cfg.theme.colors[colorScheme].light,
-          flexDirection: "column",
-          gap: "2.5rem",
-          paddingTop: "2rem",
-          paddingBottom: "2rem",
-        }}
-      >
-        <p
-          style={{
-            color: cfg.theme.colors[colorScheme].dark,
-            fontSize: useSmallerFont ? 70 : 82,
-            marginLeft: "4rem",
-            textAlign: "center",
-            marginRight: "4rem",
-            fontFamily: fonts[0].name,
-          }}
+    const { colorScheme } = userOpts
+    return (
+        <div
+            style={{
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "flex-start",
+                alignItems: "center",
+                height: "100%",
+                width: "100%",
+            }}
         >
-          {title}
-        </p>
-        <p
-          style={{
-            color: cfg.theme.colors[colorScheme].dark,
-            fontSize: 44,
-            marginLeft: "8rem",
-            marginRight: "8rem",
-            lineClamp: 3,
-            fontFamily: fonts[1].name,
-          }}
-        >
-          {description}
-        </p>
-      </div>
-      <div
-        style={{
-          height: "100%",
-          width: "2vw",
-          position: "absolute",
-          backgroundColor: cfg.theme.colors[colorScheme].tertiary,
-          opacity: 0.85,
-        }}
-      />
-    </div>
-  )
+            <div
+                style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    height: "100%",
+                    width: "100%",
+                    backgroundColor: cfg.theme.colors[colorScheme].light,
+                    flexDirection: "column",
+                    gap: "2.5rem",
+                    paddingTop: "2rem",
+                    paddingBottom: "2rem",
+                }}
+            >
+                <p
+                    style={{
+                        color: cfg.theme.colors[colorScheme].dark,
+                        fontSize: useSmallerFont ? 70 : 82,
+                        marginLeft: "4rem",
+                        textAlign: "center",
+                        marginRight: "4rem",
+                        fontFamily: fonts[0].name,
+                    }}
+                >
+                    {title}
+                </p>
+                <p
+                    style={{
+                        color: cfg.theme.colors[colorScheme].dark,
+                        fontSize: 44,
+                        marginLeft: "8rem",
+                        marginRight: "8rem",
+                        lineClamp: 3,
+                        fontFamily: fonts[1].name,
+                    }}
+                >
+                    {description}
+                </p>
+            </div>
+            <div
+                style={{
+                    height: "100%",
+                    width: "2vw",
+                    position: "absolute",
+                    backgroundColor: cfg.theme.colors[colorScheme].tertiary,
+                    opacity: 0.85,
+                }}
+            />
+        </div>
+    )
 }
 ```
 

@@ -14,4 +14,4 @@ Freelance projects and commissions will also be done through mia.cx.
 
 ## Sector
 
-mia.cx is focused on 
+mia.cx is focused on

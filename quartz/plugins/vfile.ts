@@ -7,8 +7,8 @@ export type MarkdownContent = [MdRoot, VFile]
 export type ProcessedContent = [HtmlRoot, VFile]
 
 export function defaultProcessedContent(vfileData: Partial<QuartzPluginData>): ProcessedContent {
-  const root: HtmlRoot = { type: "root", children: [] }
-  const vfile = new VFile("")
-  vfile.data = vfileData
-  return [root, vfile]
+    const root: HtmlRoot = { type: "root", children: [] }
+    const vfile = new VFile("")
+    vfile.data = vfileData
+    return [root, vfile]
 }

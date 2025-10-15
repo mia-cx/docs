@@ -8,7 +8,7 @@ license:
 license_url:
 aliases: Timeline
 cssclasses:
-  - clean-embeds
+    - clean-embeds
 ---
 
 The scope of mia.cx is considerably large, that's why I need to prioritize and figure out what to focus on first. More detailed roadmaps will be available in respective [[Projects/index|Projects]] folders. If a freelance opportunity or commission-based work presents itself, and I can do it alongside business activities, I will take it.

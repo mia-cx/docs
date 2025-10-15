@@ -4,37 +4,34 @@ import { version } from "../../package.json"
 import { i18n } from "../i18n"
 
 interface Options {
-  links: Record<string, string>
+    links: Record<string, string>
 }
 
 export default ((opts?: Options) => {
-  const Footer: QuartzComponent = ({ displayClass, cfg }: QuartzComponentProps) => {
-    const year = new Date().getFullYear()
-    const links = opts?.links ?? []
-    return (
-      <footer class={`${displayClass ?? ""}`}>
-        <p>
-          {i18n(cfg.locale).components.footer.title} © {year}
-          {" - "}
-          <a href="https://dev.lucent.mia.cx/Meta/Licenses#lucent">CC BY-SA 4.0</a>
-          <br />
-          {i18n(cfg.locale).components.footer.createdWith}{" "}
-          <a href="https://obsidian.md/">Obsidian</a> and{" "}
-          <a href="https://quartz.jzhao.xyz/">Quartz</a>
-          <br />
-          Icons by <a href="https://www.streamlinehq.com/icons/pixel-icons">Streamline Vector</a> - <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>
-        </p>
-        <ul>
-          {Object.entries(links).map(([text, link]) => (
-            <li>
-              <a href={link}>{text}</a>
-            </li>
-          ))}
-        </ul>
-      </footer>
-    )
-  }
+    const Footer: QuartzComponent = ({ displayClass, cfg }: QuartzComponentProps) => {
+        const year = new Date().getFullYear()
+        const links = opts?.links ?? []
+        return (
+            <footer class={`${displayClass ?? ""}`}>
+                <p>
+                    {i18n(cfg.locale).components.footer.title} © {year}
+                    {" - "}
+                    <a href="https://github.com/mia-cx/docs/tree/main/content">CC BY-SA 4.0</a>
+                    <br />
+                    {i18n(cfg.locale).components.footer.createdWith} <a href="https://obsidian.md/">Obsidian</a> and{" "}
+                    <a href="https://quartz.jzhao.xyz/">Quartz</a>
+                </p>
+                <ul>
+                    {Object.entries(links).map(([text, link]) => (
+                        <li>
+                            <a href={link}>{text}</a>
+                        </li>
+                    ))}
+                </ul>
+            </footer>
+        )
+    }
 
-  Footer.css = style
-  return Footer
+    Footer.css = style
+    return Footer
 }) satisfies QuartzComponentConstructor
