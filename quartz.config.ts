@@ -8,47 +8,49 @@ import * as Plugin from "./quartz/plugins"
  */
 const config: QuartzConfig = {
   configuration: {
-    pageTitle: "Quartz 4",
-    pageTitleSuffix: "",
+    pageTitle: "mia.cx Doc",
+    pageTitleSuffix: " | mia.cx Docs",
     enableSPA: true,
     enablePopovers: true,
     analytics: {
       provider: "plausible",
+      host: 'https://plausible.mia.cx'
     },
     locale: "en-US",
-    baseUrl: "quartz.jzhao.xyz",
-    ignorePatterns: ["private", "templates", ".obsidian"],
+    baseUrl: "docs.mia.cx",
+    ignorePatterns: ["00 Private", "99 Meta", ".obsidian"],
     defaultDateType: "modified",
     theme: {
       fontOrigin: "googleFonts",
       cdnCaching: true,
       typography: {
-        header: "Schibsted Grotesk",
-        body: "Source Sans Pro",
-        code: "IBM Plex Mono",
+        title: "Archivo Black",
+        header: "Archivo",
+        body: "Archivo",
+        code: "Google Sans Code",
       },
       colors: {
         lightMode: {
-          light: "#faf8f8",
-          lightgray: "#e5e5e5",
-          gray: "#b8b8b8",
-          darkgray: "#4e4e4e",
-          dark: "#2b2b2b",
-          secondary: "#284b63",
-          tertiary: "#84a59d",
-          highlight: "rgba(143, 159, 169, 0.15)",
-          textHighlight: "#fff23688",
+          light: "#eff1f5", // catppuccin base
+          lightgray: "#e6e9ef", // catppuccin overlay2
+          gray: "#7c7f93", // catppuccin overlay2
+          darkgray: "#4c4f69", // catppuccin text
+          dark: "#4c4f69", // catppuccin text
+          secondary: "#40a02b", // catppuccin green
+          tertiary: "#179299", // catppuccin teal
+          highlight: "rgba(124, 127, 147, 0.2)", // catppuccin overlay2
+          textHighlight: "rgba(64, 160, 43, 0.2)", // catppuccin green
         },
         darkMode: {
-          light: "#161618",
-          lightgray: "#393639",
-          gray: "#646464",
-          darkgray: "#d4d4d4",
-          dark: "#ebebec",
-          secondary: "#7b97aa",
-          tertiary: "#84a59d",
-          highlight: "rgba(143, 159, 169, 0.15)",
-          textHighlight: "#b3aa0288",
+          light: "#1e1e2e", // catppuccin base
+          lightgray: "#181825", // catppuccin overlay2
+          gray: "#9399b2", // catppuccin overlay2
+          darkgray: "#cdd6f4", // catppuccin text
+          dark: "#cdd6f4", // catppuccin text
+          secondary: "#a6e3a1", // catppuccin green
+          tertiary: "#94e2d5", // catppuccin teal
+          highlight: "rgba(147, 153, 178, 0.2)", // catppuccin overlay2
+          textHighlight: "rgba(166, 227, 161, 0.2)", // catppuccin green
         },
       },
     },
