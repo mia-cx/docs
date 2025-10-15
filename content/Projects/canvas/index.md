@@ -3,7 +3,7 @@ title: canvas
 authors:
 description:
 created: 2025-10-15T12:34:09+02:00
-modified: 2025-10-15T21:14:03+02:00
+modified: 2025-10-15T21:33:35+02:00
 license:
 license_url:
 ---
@@ -147,9 +147,10 @@ Another core value of canvas is that artists get to present their content the wa
 
 ### User engagement
 
-Visitors and other canvas users should be able to interact with posts on the platform through the usual _like_, _comment_, _repost_ and _subscribe_ methods. On top of that I want to make this a hotspot for curators by adding "collections". Collections will be similar to playlists or "lists", but the best analog is the Collections feature from the defunct [Google+](https://en.wikipedia.org/wiki/Google%2B).
-The standout difference between canvas collections and lists on other platforms is that users can follow collections like they would users, so that they see posts that are added to these collections on their feed.
-It would be cool to also allow for curators to add artists or labels to collections so it auto-populates a collection's feed with posts from these artists, like a "follow-list". Though, I will have to think about a way to let users "exclude" artists from a collection they follow so those artists' posts don't show up in that user's feed, even though they're in a collection that that user follows.
+Visitors and other canvas users should be able to interact with posts on the platform through the usual _like_, _comment_, _repost_ and _subscribe_ methods. On top of that I want to make this a hotspot for curators by adding "collections". Collections will be similar to playlists or "lists", but the best analog is the Collections feature from the defunct [Google+](https://en.wikipedia.org/wiki/Google%2B).  
+The standout difference between canvas collections and lists on other platforms is that users can follow collections like they would users, so that they see posts that are added to these collections on their feed.  
+It would be cool to also allow for curators to add artists or labels to collections so it auto-populates a collection's feed with posts from these artists, like a "follow-list". Though, I will have to think about a way to let users "exclude" artists from a collection they follow so those artists' posts don't show up in that user's feed, even though they're in a collection that that user follows.  
+There should also be a special type of collection which is functionally identical to a playlist, but curators can connect their canvas account with accounts on other streaming platforms and sync their playlists across streaming platforms.
 
 ## The road to get there
 
@@ -157,6 +158,9 @@ The best way to get to market, in my opinion is to start with the content manage
 
 After the blogging engine, the next priority is to get pre-saves working so that artists will start to use canvas to announce their music as well.
 
-The logical next step would be to introduce an analytics dashboard.
+The logical next step would be to introduce an analytics dashboard, and allow for sharing analytics with other platforms like [Meta Ads](https://en.wikipedia.org/wiki/Meta_Platforms), TikTok Ads, Twitter Ads, [Google Analytics](https://en.wikipedia.org/wiki/Google_Analytics), and more(?), so that people can set up ad campaigns to be retargeted based on real-time conversion data.
 
-As soon as these three features are public, I think canvas can be self-sustaining.
+As soon as the first three milestones have been reached, I think canvas can be self-sustaining. Custom domains will be a cool and relatively simple additional feature to add after these to enhance incentive for artists to switch.  
+After these, I will have to re-assess, and listen to user feedback to decide which features should come next.
+
+This is also the point where I will think about starting work on Textile.
