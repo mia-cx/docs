@@ -3,7 +3,7 @@ title: canvas
 authors:
 description:
 created: 2025-10-15T12:34:09+02:00
-modified: 2025-10-15T21:58:23+02:00
+modified: 2025-10-15T22:48:46+02:00
 license:
 license_url:
 ---
@@ -20,6 +20,22 @@ A secondary target audience is the listener, the consumer of the art. It doesn't
 
 In short, the aim is to make creating, managing and marketing art and information easier and cheaper for publishing entities, as well as incentivizing their audience to engage with their content on the platform.
 
+### Potential userbase
+
+[Statista](https://www.statista.com/statistics/1468811/linktree-global-users/) says linktree had a reported userbase of 50 million users in 2024.
+
+> In May 2024, creator economy company Linktree reported to industry sources they reached 50 million users. Linktree was launched in 2016 and is headquartered in Melbourne, Australia. The company provides the possibility for content creators to add links in their social media bio sections. Between December 2023 and May 2024, Linktree saw its user numbers grow by 22 percent.
+
+[Electro IQ](https://electroiq.com/stats/soundcloud-statistics/) says SoundCloud had a reported 140 million users in 2023.
+
+> In 2023, SoundCloud had 140 million of the 2,160 million music streaming users, surpassing Apple Music.
+
+[Write Seen](https://writeseen.com/blog/how-many-music-producers-in-world) says there are well over 3 million professional and independent music creators in the world.
+
+> How many music producers are there in the world? The answer: well over 3 million, counting everyone from industry professionals to independent creators releasing music from home.
+
+With a conservative outlook I hope capture around 0.5% of the creator market (15K) and 0.01% of the listener market (216K). I expect canvas to be self-sustaining long before we reach these numbers.
+
 ## The problem(s)
 
 I've been making music since 2012, and publishing it since 2016. Over the years I've made musician friends in the industry and even started a record label to help others publish their music too. In my journey running the label I've been in charge of Audio Engineering (Mastering), [DQM](https://www.ibm.com/think/topics/data-quality-management), [CRM](https://en.wikipedia.org/wiki/Customer_relationship_management), Distribution to [DSPs](https://soundcharts.com/blog/what-is-a-dsp-digital-service-provider-in-music) and Marketing campaigns. When I was doing all of these things, essentially on my own, I ran into a whole host of problems that currently do not have any solutions (that are feasible for small labels or indie artists). With canvas I want to solve these problems one by one, and make them available and affordable for everyone.
@@ -35,7 +51,7 @@ When you share your music with your friends, you usually know who they are. You 
 Posting your music on social media is more of an open invitation. You don't know who will see your posts, so you can't know what [streaming platform](https://en.wikipedia.org/wiki/Music_streaming_service) they're on. That makes it harder to effectively get conversions from visitors, to listeners, to fans. If your post only has a link to one [streaming platform](https://en.wikipedia.org/wiki/Music_streaming_service), potential fans that use different services, experience very high friction from having to manually leave your post, then open their service of choice, and searching for it.
 
 > [!info] Other side-effects
->
+> 
 > 1. When a user leaves a social media site to look for your music, that social media typically sees that as your post making users close the platform. This can result in that social media negatively impacting the visibility / reach of your post in their recommendation algorithm. Users clicking a link in your post is typically treated differently.
 > 2. When a user has to search for your music manually, on their streaming service of choice, there is no guarantee that the user will actually find your music. There is a plethora of songs and artists with similar if not identical titles. Search results are usually sorted by popularity, so unless your metadata is thoroughly disambiguated, it's unlikely to show up.
 
@@ -64,9 +80,9 @@ Below is a list of these landing page services and the price of the cheapest pla
 | [Feature.fm](https://feature.fm/pricing/artist)    | $19/mo            | $99/mo              | - Limited custom domains<br>- Limited analytics history<br>- Remember service only in higher plan.<br>- No Ad platform integration |
 | [Linktree](https://linktr.ee/s/pricing/)           | €12/mo            | Not available       | - No "future pre-save"<br>- No Ad platform integration                                                                             |
 | [Hypeddit](https://hypeddit.com/)                  | $10/mo            | Not available       | - No "future pre-save"<br>- No Ad platform integration                                                                             |
-| [ToneDen](https://www.toneden.io/)                 | €41/mo            | €82/mo (per artist) | - No "future pre-save"                                                                                                             |
-| [LinkFire](https://www.linkfire.com/pricing)       | $27/mo            | $55/mo              | - Limited artist slots for labels<br>- No free plan<br>- No Ad platform integration                                                |
-| [Soundplate](https://click.soundplate.com/pricing) | $20/mo            | POA                 | - No "future pre-save"<br>- No Ad platform integration                                                                             |
+| [ToneDen](<https://www.toneden.io/>)                 | €41/mo            | €82/mo (per artist) | - No "future pre-save"                                                                                                             |
+| [LinkFire](<https://www.linkfire.com/pricing>)       | $27/mo            | $55/mo              | - Limited artist slots for labels<br>- No free plan<br>- No Ad platform integration                                                |
+| [Soundplate](<https://click.soundplate.com/pricing>) | $20/mo            | POA                 | - No "future pre-save"<br>- No Ad platform integration                                                                             |
 
 The plans above also include many features that many starting artists and labels don't and probably won't need.
 
