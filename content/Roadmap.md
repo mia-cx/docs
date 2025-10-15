@@ -17,6 +17,8 @@ The initial focus will be on [[Projects/canvas/index|canvas]]. Before moving on 
 
 ---
 
+## canvas
+
 ![[Projects/canvas/index|canvas]]
 
 After the self-sustainability milestone of canvas, I'll get started on [[Projects/Textile/index|Textile]]. I've outline in the [[Projects/Textile/Roadmap|Textile Timeline]] how that will get from start to launch.
