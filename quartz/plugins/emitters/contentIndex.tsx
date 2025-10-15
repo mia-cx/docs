@@ -19,6 +19,7 @@ export type ContentDetails = {
   richContent?: string
   date?: Date
   description?: string
+  collapsed?: boolean
 }
 
 interface Options {
@@ -115,6 +116,8 @@ export const ContentIndex: QuartzEmitterPlugin<Partial<Options>> = (opts) => {
               : undefined,
             date: date,
             description: file.data.description ?? "",
+            // propagate per-folder default collapse if provided on index.md
+            collapsed: (file.data.frontmatter as any)?.collapsed,
           })
         }
       }

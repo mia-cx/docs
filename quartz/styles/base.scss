@@ -248,7 +248,7 @@ a {
         position: initial;
         height: unset;
         width: 100%;
-        flex-direction: row;
+        // flex-direction: row;
         padding: 0;
         & > * {
           flex: 1;
@@ -352,9 +352,14 @@ h4,
 h5,
 h6,
 thead {
-  font-family: var(--headerFont);
+  &:is(h1) {
+    font-family: var(--titleFont);
+  }
+  &:not(h1) {
+    font-family: var(--headerFont);
+    font-weight: revert;
+  }
   color: var(--dark);
-  font-weight: revert;
   margin-bottom: 0;
 
   article > & > a[role="anchor"] {
@@ -412,6 +417,21 @@ h6 {
   font-size: 1rem;
   margin-top: 1.5rem;
   margin-bottom: 1rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  iconify-icon {
+    vertical-align: text-bottom;
+    display: inline-block;
+    width: 1em;
+    height: 1lh;
+    margin-right: 0.25em;
+  }
 }
 
 figure[data-rehype-pretty-code-figure] {

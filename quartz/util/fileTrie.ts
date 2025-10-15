@@ -5,6 +5,7 @@ interface FileTrieData {
   slug: string
   title: string
   filePath: string
+  collapsed?: boolean
 }
 
 export class FileTrieNode<T extends FileTrieData = ContentDetails> {
@@ -32,6 +33,17 @@ export class FileTrieNode<T extends FileTrieData = ContentDetails> {
     return (
       this.displayNameOverride ?? nonIndexTitle ?? this.fileSegmentHint ?? this.slugSegment ?? ""
     )
+  }
+
+  get sortName(): string {
+    const nonIndexTitle = this.data?.title === "index" ? undefined : this.data?.title
+    return (
+      this.fileSegmentHint ?? this.displayNameOverride ?? nonIndexTitle ?? this.slugSegment ?? ""
+    )
+  }
+
+  get isCollapsed(): boolean | null {
+    return this.data?.collapsed ?? null
   }
 
   set displayName(name: string) {
@@ -166,5 +178,10 @@ export class FileTrieNode<T extends FileTrieData = ContentDetails> {
     return this.entries()
       .filter(([_, node]) => node.isFolder)
       .map(([path, _]) => path)
+  }
+
+  getFolders() {
+    return this.entries()
+      .filter(([_, node]) => node.isFolder)
   }
 }

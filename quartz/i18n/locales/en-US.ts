@@ -36,7 +36,8 @@ export default {
       title: "Explorer",
     },
     footer: {
-      createdWith: "Created with",
+      title: "Lucent Adventures",
+      createdWith: "Documentation created with",
     },
     graph: {
       title: "Graph View",

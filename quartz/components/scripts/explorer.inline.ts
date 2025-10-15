@@ -1,6 +1,7 @@
 import { FileTrieNode } from "../../util/fileTrie"
 import { FullSlug, resolveRelative, simplifySlug } from "../../util/path"
 import { ContentDetails } from "../../plugins/emitters/contentIndex"
+import path from "path"
 
 type MaybeHTMLElement = HTMLElement | undefined
 
@@ -43,15 +44,15 @@ function toggleFolder(evt: MouseEvent) {
   if (!target) return
 
   // Check if target was svg icon or button
-  const isSvg = target.nodeName === "svg"
+  const isFolderIcon = target.classList.contains("folder-icon")
 
   // corresponding <ul> element relative to clicked button/folder
   const folderContainer = (
-    isSvg
+    isFolderIcon
       ? // svg -> div.folder-container
-        target.parentElement
+      target.parentElement
       : // button.folder-button -> div -> div.folder-container
-        target.parentElement?.parentElement
+      target.parentElement?.parentElement
   ) as MaybeHTMLElement
   if (!folderContainer) return
   const childFolderContainer = folderContainer.nextElementSibling as MaybeHTMLElement
@@ -104,7 +105,7 @@ function createFolderNode(
   const clone = template.content.cloneNode(true) as DocumentFragment
   const li = clone.querySelector("li") as HTMLLIElement
   const folderContainer = li.querySelector(".folder-container") as HTMLElement
-  const titleContainer = folderContainer.querySelector("div") as HTMLElement
+  const titleContainer = folderContainer.querySelector("div:not(.folder-icon)") as HTMLElement
   const folderOuter = li.querySelector(".folder-outer") as HTMLElement
   const ul = folderOuter.querySelector("ul") as HTMLUListElement
 
@@ -120,14 +121,18 @@ function createFolderNode(
     a.className = "folder-title"
     a.textContent = node.displayName
     button.replaceWith(a)
+    if (currentSlug === node.slug) {
+      a.classList.add("active")
+    }
   } else {
     const span = titleContainer.querySelector(".folder-title") as HTMLElement
     span.textContent = node.displayName
   }
 
-  // if the saved state is collapsed or the default state is collapsed
+  // if the saved state is collapsed or the default (per-folder) state is collapsed
   const isCollapsed =
     currentExplorerState.find((item) => item.path === folderPath)?.collapsed ??
+    node.isCollapsed ??
     opts.folderDefaultState === "collapsed"
 
   // if this folder is a prefix of the current path we
@@ -192,13 +197,23 @@ async function setupExplorer(currentSlug: FullSlug) {
     }
 
     // Get folder paths for state management
-    const folderPaths = trie.getFolderPaths()
-    currentExplorerState = folderPaths.map((path) => {
-      const previousState = oldIndex.get(path)
+    // const folderPaths = trie.getFolderPaths()
+    // currentExplorerState = folderPaths.map((path) => {
+    //   const previousCollapsed = oldIndex.get(path)
+    //   return {
+    //     path,
+    //     collapsed:
+    //       previousCollapsed ?? opts.folderDefaultState === "collapsed"
+    //       // previousState === undefined ? opts.folderDefaultState === "collapsed" : previousState,
+    //   }
+    // })
+
+    const folders = trie.getFolders()
+    currentExplorerState = folders.map(([path, node]) => {
+      const previousCollapsed = oldIndex.get(path)
       return {
         path,
-        collapsed:
-          previousState === undefined ? opts.folderDefaultState === "collapsed" : previousState,
+        collapsed: previousCollapsed ?? node.isCollapsed ?? opts.folderDefaultState === "collapsed",
       }
     })
 
@@ -207,13 +222,26 @@ async function setupExplorer(currentSlug: FullSlug) {
 
     // Create and insert new content
     const fragment = document.createDocumentFragment()
-    for (const child of trie.children) {
+
+    // Build combined root nodes, including Home as a file node
+    let rootNodes = [...trie.children]
+    if (trie.data) {
+      const homeNode = new FileTrieNode(["index"], trie.data as any)
+      rootNodes.push(homeNode)
+    }
+
+    // Re-apply sort so Home adheres to the same ordering
+    if (opts.sortFn) {
+      rootNodes.sort(opts.sortFn)
+    }
+
+    for (const child of rootNodes) {
       const node = child.isFolder
         ? createFolderNode(currentSlug, child, opts)
         : createFileNode(currentSlug, child)
-
       fragment.appendChild(node)
     }
+    
     explorerUl.insertBefore(fragment, explorerUl.firstChild)
 
     // restore explorer scrollTop position if it exists

@@ -100,13 +100,14 @@ export const FrontMatter: QuartzTransformerPlugin<Partial<Options>> = (userOpts)
 
             const socialImage = coalesceAliases(data, ["socialImage", "image", "cover"])
 
-            const created = coalesceAliases(data, ["created", "date"])
+            const created = coalesceAliases(data, ["created_at", "created", "date"])
             if (created) {
               data.created = created
               data.modified ||= created // if modified is not set, use created
             }
 
             const modified = coalesceAliases(data, [
+              "modified_at",
               "modified",
               "lastmod",
               "updated",
@@ -121,6 +122,24 @@ export const FrontMatter: QuartzTransformerPlugin<Partial<Options>> = (userOpts)
             // Remove duplicate slugs
             const uniqueSlugs = [...new Set(allSlugs)]
             allSlugs.splice(0, allSlugs.length, ...uniqueSlugs)
+
+            // allow boolean or string values and preserve false
+            const collapsed = coalesceAliases(data, ["collapsed"])
+            if (collapsed !== undefined && collapsed !== null) {
+              if (typeof collapsed === "boolean") {
+                data.collapsed = collapsed
+              } else if (typeof collapsed === "string") {
+                const lowered = collapsed.toLowerCase()
+                if (lowered === "true" || lowered === "false") {
+                  data.collapsed = lowered === "true"
+                } else {
+                  // fallback: non-empty string treated as true
+                  data.collapsed = true
+                }
+              } else {
+                data.collapsed = Boolean(collapsed)
+              }
+            }
 
             // fill in frontmatter
             file.data.frontmatter = data as QuartzPluginData["frontmatter"]
@@ -151,6 +170,8 @@ declare module "vfile" {
         cssclasses: string[]
         socialImage: string
         comments: boolean | string
+        icon: string
+            collapsed: boolean
       }>
   }
 }
