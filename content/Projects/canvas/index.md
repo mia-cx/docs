@@ -3,12 +3,22 @@ title: canvas
 authors:
 description:
 created: 2025-10-15T12:34:09+02:00
-modified: 2025-10-15T17:47:56+02:00
+modified: 2025-10-15T21:14:03+02:00
 license:
 license_url:
 ---
 
 canvas is a web platform that lets record labels, publishers and host and market their content effectively.
+
+## The target audience
+
+canvas will initially be geared and primarily targeted to independent musicians and small labels, publishers & collectives, hereafter known as "publishing entities". People that are having a hard time platforming their identity in the industry. Later on, this will also expand to artists with different media (paint, film, literary).
+
+I am aware of a pitfall in this target audience being that "aspirers" (people that are just starting out) tend to either give up or "graduate" and then move on to bigger, (usually more expensive) industry standard offerings. I will address this pitfall by expanding canvas' offerings over time and slowly build it up as a suite of tools useful to the entire industry, not just the small and independent.
+
+A secondary target audience is the listener, the consumer of the art. It doesn't make much sense for publishing entities to put their art on a platform that doesn't incentivize people to actually engage with content on that platform.
+
+In short, the aim is to make creating, managing and marketing art and information easier and cheaper for publishing entities, as well as incentivizing their audience to engage with their content on the platform.
 
 ## The problem(s)
 
@@ -25,7 +35,7 @@ When you share your music with your friends, you usually know who they are. You 
 Posting your music on social media is more of an open invitation. You don't know who will see your posts, so you can't know what [streaming platform](https://en.wikipedia.org/wiki/Music_streaming_service) they're on. That makes it harder to effectively get conversions from visitors, to listeners, to fans. If your post only has a link to one [streaming platform](https://en.wikipedia.org/wiki/Music_streaming_service), potential fans that use different services, experience very high friction from having to manually leave your post, then open their service of choice, and searching for it.
 
 > [!info] Other side-effects
-> 
+>
 > 1. When a user leaves a social media site to look for your music, that social media typically sees that as your post making users close the platform. This can result in that social media negatively impacting the visibility / reach of your post in their recommendation algorithm. Users clicking a link in your post is typically treated differently.
 > 2. When a user has to search for your music manually, on their streaming service of choice, there is no guarantee that the user will actually find your music. There are huge amounts of songs and artists with similar if not identical titles. Search results are usually sorted by popularity, so unless your metadata is thoroughly disambiguated, it's unlikely to show up.
 
@@ -54,9 +64,9 @@ Below is a list of these landing page services and the price of the cheapest pla
 | [Feature.fm](https://feature.fm/pricing/artist)    | $19/mo            | $99/mo              | - Limited custom domains<br>- Limited analytics history<br>- Remember service only in higher plan.<br>- No Ad platform integration |
 | [Linktree](https://linktr.ee/s/pricing/)           | €12/mo            | Not available       | - No "future pre-save"<br>- No Ad platform integration                                                                             |
 | [Hypeddit](https://hypeddit.com/)                  | $10/mo            | Not available       | - No "future pre-save"<br>- No Ad platform integration                                                                             |
-| [ToneDen](<https://www.toneden.io/>)                 | €41/mo            | €82/mo (per artist) | - No "future pre-save"                                                                                                             |
-| [LinkFire](<https://www.linkfire.com/pricing>)       | $27/mo            | $55/mo              | - Limited artist slots for labels<br>- No free plan<br>- No Ad platform integration                                                |
-| [Soundplate](<https://click.soundplate.com/pricing>) | $20/mo            | POA                 | - No "future pre-save"<br>- No Ad platform integration                                                                             |
+| [ToneDen](https://www.toneden.io/)                 | €41/mo            | €82/mo (per artist) | - No "future pre-save"                                                                                                             |
+| [LinkFire](https://www.linkfire.com/pricing)       | $27/mo            | $55/mo              | - Limited artist slots for labels<br>- No free plan<br>- No Ad platform integration                                                |
+| [Soundplate](https://click.soundplate.com/pricing) | $20/mo            | POA                 | - No "future pre-save"<br>- No Ad platform integration                                                                             |
 
 The plans above also include many features that many starting artists and labels don't and probably won't need.
 
@@ -68,7 +78,7 @@ One huge feature gap that I've experienced trying all of these services is ident
 
 Art is personal. The way you present your art should be, too. Modern social media make everyone look the same. If apart from an avatar and a banner image, you look the same as everyone else, how do you stand out? How can you present your art, consistent with your brand? Worse still, are smart links and linktrees. These are egregiously impossible to customize, when that should be their primary purpose, to represent you.
 
-### Centralization
+### Decentralization
 
 Managing your discography across a multitude of platforms is basically a full-time job. A musician, on average, will have profiles that all need to be maintained (by themselves) with their content on:
 
@@ -92,20 +102,55 @@ All of this is before you even get into distributing your music to DSPs like Spo
 
 ### Distribution
 
+Distribution your music is... frustrating... there's a lot of providers out there and all of them suffer from the same bad catalog management issues. Distribution is something I will need to look deeper into at a later time.
+
 ### Data Quality Management
+
+Problems with DQM are things I encountered while organizing compilation albums. Keeping track of track metadata, artist names, legal info, social media links, royalty split email addresses... You would think or even expect these are tools built into distribution partners, but no. We had to do this with our own spreadsheets.
 
 ### Collaboration
 
-## The target audience
-
-canvas will initially be geared and primarily targeted to independent musicians and small labels, publishers & collectives, hereafter known as "publishing entities". People that are having a hard time platforming their identity in the industry. Later on, this will also expand to artists with different media (paint, film, literary).
-
-I am aware of a pitfall in this target audience being that "aspirers" (people that are just starting out) tend to either give up or "graduate" and then move on to bigger, (usually more expensive) industry standard offerings. I will address this pitfall by expanding canvas' offerings over time and slowly build it up as a suite of tools useful to the entire industry, not just the small and independent.
-
-A secondary target audience is the listener, the consumer of the art. It doesn't make much sense for publishing entities to put their art on a platform that doesn't incentivize people to actually engage with content on that platform.
-
-In short, the aim is to make creating, managing and marketing art and information easier and cheaper for publishing entities, as well as incentivizing their audience to engage with their content on the platform.
+[Splice](<https://en.wikipedia.org/wiki/Splice_(platform)>) used to have "Splice Studio" which was basically a version control system for your music projects, and even let you simplify collaborating on your music. This was discontinued, and is something that's sorely missed by a huge group of people. I want to breathe new life into this concept.
 
 ## The vision
 
-## The solution(s)
+An all-in-one suite of tools helping creators get their art out the door and into the world.
+
+### Modular Pricing
+
+A core value of canvas is and will always be to keep things fair for artists. I want artists to only have to pay for the features they actually need. This _can_ be overwhelming for customers to figure out what we actually have on offer, that's why I want to introduce data-driven bundles so people can select a "preset" with features that are popular among artists and labels at different levels. These bundles can of course still be customized.
+
+To make sure people learn about what we have on offer, we will have a free or "trial" version for as many features as possible, that lets them try it out and decide for themselves if they actually need it (This is not possible for some features, like custom domains, but these are so ubiquitous that a demo isn't really necessary).
+
+Another way that I want to make this modular pricing attractive and sensible to potential customers is with a discount "curve", where the more features you add to your plan, the more of a discount you get, maxing out at a certain point of course.  
+Each feature will have a cost of operation, what it will cost for it to actually run & function properly, as well as a percentage of what it costs to support me and any potential future employees. Second, every feature will have "base" pricing, somewhere above that cost of operation, that makes it competitive and attractive on its own.  
+The discount curve will approach a midpoint between that base pricing and cost of operation, based on how many features are in your plan.  
+This way we keep things modular, transparent and fair for artists, without disincentivizing them from looking at expanding their plan when they need new features.
+
+### Feature parity
+
+To be able to compete in an established market, we need to attain feature parity with the existing options, and even exceed them, to be attractive.
+
+### Centralization
+
+I see canvas combining "(micro)blogging" architecture with smart links, and even music streaming.
+
+On the public side, a sort of amalgam or hybrid between a smart link provider like [Feature.fm](https://en.wikipedia.org/wiki/Feature.fm), a music platform like [SoundCloud](https://en.wikipedia.org/wiki/SoundCloud), a [microblogging](https://en.wikipedia.org/wiki/Microblogging)-esque experience with feeds and follows for users like on [Twitter](https://en.wikipedia.org/wiki/Twitter), while allowing for more macroblogging capabilities like [WordPress](https://en.wikipedia.org/wiki/WordPress) or [Medium](<https://en.wikipedia.org/wiki/Medium_(website)>) for writing more information and history about - or press releases for - your music, and finally an outlet like [Bandcamp](https://en.wikipedia.org/wiki/Bandcamp), to sell your music (and merch) directly to your fans as well (integrating with [Shopify](https://en.wikipedia.org/wiki/Shopify) or alike so we don't have to reinvent the wheel that is e-commerce).
+
+While on the dashboard, artists and labels get extensive tooling to manage their catalog, leverage analytics, set up marketing campaigns, and even manage creatives for other platforms (sync posts).
+
+All of these things exist, individually, with focus on diverging audiences, which makes it so artists and music publishers have to work around their quirks designed for a different target group to make it work for their purpose.
+
+### Identity
+
+Another core value of canvas is that artists get to present their content the way they want to. Profile pictures and banners, while included, are not the whole picture. We want you to be able to design the look of your entire page. Change every color in your theme, switch fonts, change alignment, and to an extent, change layouts. Think [tumblr](https://en.wikipedia.org/wiki/Tumblr). Your profile should feel like your own home page.
+
+## The road to get there
+
+The best way to get to market, in my opinion is to start with the content management system. Build a "blogging engine" focused around art and music with "smart links" built in so artists can quickly adopt and port over their catalog to canvas and see an immediate improvement to their visual identity.
+
+After the blogging engine, the next priority is to get pre-saves working so that artists will start to use canvas to announce their music as well.
+
+The logical next step would be to introduce an analytics dashboard.
+
+As soon as these three features are public, I think canvas can be self-sustaining.
