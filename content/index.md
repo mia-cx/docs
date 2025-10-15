@@ -1,5 +1,5 @@
 ---
-title: mia.cx
+title: Business plan
 authors:
 description:
 created: 2025-10-15T12:32:44+02:00

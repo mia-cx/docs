@@ -1,5 +1,5 @@
 ---
-title: Financial plan
+title: Budgets & estimations
 authors:
 description:
 created: 2025-10-15T22:49:21+02:00
