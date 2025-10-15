@@ -1,0 +1,8 @@
+{
+  "accentColor": "#55ddff",
+  "cssTheme": "AnuPpuccin",
+  "theme": "system",
+  "enabledCssSnippets": [
+    "clean-embeds"
+  ]
+}
