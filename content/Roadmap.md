@@ -15,6 +15,8 @@ The scope of mia.cx is considerably large, that's why I need to prioritize and f
 
 The initial focus will be on [[Projects/canvas/index|canvas]]. Before moving on to other projects, canvas should be public, and making enough revenue to support me personally. The road to get to that point is detailed in the [[Projects/canvas/Roadmap|canvas Timeline]]. After that milestone of being self-sustaining, I want to start working on other projects like [[Projects/Textile/index|Textile]].
 
+---
+
 ![[Projects/canvas/index|canvas]]
 
 After the self-sustainability milestone of canvas, I'll get started on [[Projects/Textile/index|Textile]]. I've outline in the [[Projects/Textile/Roadmap|Textile Timeline]] how that will get from start to launch.
