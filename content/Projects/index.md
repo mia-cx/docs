@@ -10,5 +10,5 @@ collapsed: 'false'
 ---
 
 - [[Projects/mia.cx/index|mia.cx]]
-- [[Projects/canvas/index|canvas]]
+- [[Projects/vesta/index|vesta]]
 - [[Projects/Textile/index|Textile]]
